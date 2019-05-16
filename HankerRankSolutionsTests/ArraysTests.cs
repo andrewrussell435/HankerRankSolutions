@@ -32,5 +32,37 @@ namespace HankerRankSolutions.Tests
 
             CollectionAssert.AreEqual(rotatedArray, new int[] { 2, 3, 4, 5, 1 });
         }
+        [TestMethod()]
+        public void hourglassSumTest_exampleInput()
+        {
+            var arr = new int[7,6] { { 1,1,1,0,0,0 },
+                { 0,1,0,0,0,0},
+                { 0,1,0,0,0,0},
+                { 1,1,1,0,0,0},
+                { 0,0,2,4,4,0},
+                { 0,0,0,2,0,0},
+                { 0,0,1,2,4,0}
+            };
+
+            var max = ArrayProblems.hourglassSum(arr);
+
+            Assert.AreEqual(max, 19);
+        }
+
+        [TestMethod()]
+        public void hourglassSumTest_simpleInput()
+        {
+            var arr = new int[3,3] 
+            { 
+                { 1,1,1 },
+                { 0,1,0 },
+                { 1,1,1 }
+            };
+
+            var max = ArrayProblems.hourglassSum(arr);
+
+            Assert.AreEqual(max, 7);
+        }
+
     }
 }

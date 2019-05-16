@@ -24,24 +24,41 @@ namespace HankerRankSolutions
             return newArray;
         }
 
-        public static void ArrayRotation()
+        //solution for 2D Array - DS
+        public static int hourglassSum(int[,] arr)
         {
-            TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+            int maxSum = int.MinValue;
 
-            string[] nd = Console.ReadLine().Split(' ');
+            int numOfRows = arr.GetLength(0);
+            int numOfColumns = arr.GetLength(1);
 
-            int n = Convert.ToInt32(nd[0]);
+            for (int i = 0; i < numOfColumns; i++)
+            {
+                for (int j = 0; j < numOfRows; j++)
+                {
+                    if (i-1 >=0 && i+1 < numOfColumns)
+                    {
+                        if (j-1 >= 0 && j+1 < numOfRows)
+                        {
+                            int sum = arr[j - 1, i - 1]
+                                + arr[j - 1, i]
+                                + arr[j - 1, i + 1]
+                                + arr[j, i]
+                                + arr[j + 1, i - 1]
+                                + arr[j + 1, i]
+                                + arr[j + 1, i + 1];
+                            if (sum > maxSum)
+                            {
+                                maxSum = sum;
+                            }
+                        }
+                    }
+                }
+            }
 
-            int d = Convert.ToInt32(nd[1]);
-
-            int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp));
-            int[] result = rotLeft(a, d);
-
-            textWriter.WriteLine(string.Join(" ", result));
-
-            textWriter.Flush();
-            textWriter.Close();
-
+            return maxSum;
         }
+
+
     }
 }
