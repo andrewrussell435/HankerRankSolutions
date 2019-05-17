@@ -63,6 +63,34 @@ namespace HankerRankSolutions.Tests
 
             Assert.AreEqual(max, 7);
         }
+        [TestMethod()]
+        public void minimumBribes_firstExample()
+        {
+            int[] finalArray = new int[] { 2, 1, 5, 3, 4 };
+
+            var minimumSwaps = ArrayProblems.minimumBribes(finalArray);
+
+            Assert.AreEqual(3, minimumSwaps);
+        }
+        [TestMethod()]
+        public void minimumBribes_secondExample()
+        {
+            int[] finalArray = new int[] { 2, 5, 1, 3, 4 };
+
+            var minimumSwaps = ArrayProblems.minimumBribes(finalArray);
+
+            Assert.AreEqual(-1, minimumSwaps);
+        }
+        [TestMethod()]
+        public void minimumBribes_testCase2()
+        {
+            int[] finalArray = new int[] { 1, 2, 5, 3, 7, 8, 6, 4 };
+
+            var minimumSwaps = ArrayProblems.minimumBribes(finalArray);
+
+            Assert.AreEqual(7, minimumSwaps);
+        }
+
 
     }
 }

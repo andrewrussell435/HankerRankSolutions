@@ -58,7 +58,59 @@ namespace HankerRankSolutions
 
             return maxSum;
         }
+        //Solution for New Year Chaos
+        public static int minimumBribes(int[] q)
+        {
+            int[] swappedArray = new int[q.Length];
+            int[] currentIndexForPerson = new int[q.Length];
+            int[] swapCounter = new int[q.Length];
+            for (int i = 0; i < q.Length; i++)
+            {
+                swappedArray[i] = i + 1;
+                swapCounter[i] = 0;
+                currentIndexForPerson[i] = i;
+            }
+            int maxNumberOfBribesPerPerson = 2;
+            int minumumNumberOfSwaps = 0;
 
+            for (int i = q.Length - 1; i > 0; i--)
+            {
 
+                int initialPerson = swappedArray[i];
+                int personInIndexAtFinalPosition = q[i];
+                if (initialPerson != personInIndexAtFinalPosition)
+                {
+                    int currentIndex = currentIndexForPerson[personInIndexAtFinalPosition -1]+1;
+                    while (currentIndex < q.Length && swapCounter[swappedArray[currentIndex]-1] < maxNumberOfBribesPerPerson && q[i] != swappedArray[i])
+                    {
+                        int temp = swappedArray[currentIndex];
+                        swappedArray[currentIndex] = swappedArray[currentIndex - 1];
+                        currentIndexForPerson[swappedArray[currentIndex] - 1] = currentIndex;
+                        swappedArray[currentIndex - 1] = temp;
+                        currentIndexForPerson[temp - 1] = currentIndex - 1;
+                        swapCounter[temp-1]++;
+                        minumumNumberOfSwaps++;
+                        currentIndex++;
+                    }
+                    if (q[i] != swappedArray[i])
+                    {
+                        minumumNumberOfSwaps = -1;
+                        break;
+                    }
+                }
+
+            }
+
+            if (minumumNumberOfSwaps >= 0)
+            {
+                Console.WriteLine(minumumNumberOfSwaps);
+            }
+            else
+            {
+                Console.WriteLine("Too chaotic");
+
+            }
+            return minumumNumberOfSwaps;
+        }
     }
 }
