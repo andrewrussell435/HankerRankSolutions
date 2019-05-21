@@ -38,7 +38,7 @@ namespace HankerRankSolutions
         //solution for Hash Tables: Ransom Note
         public static bool checkMagazine(string[] magazine, string[] note)
         {
-            Dictionary<string, int> magazineWordCountDict = GetMagazineWordCountDict(magazine);
+            Dictionary<string, int> magazineWordCountDict = GetWordCountDict(magazine);
 
             bool valid = true;
             foreach (string word in note)
@@ -61,7 +61,7 @@ namespace HankerRankSolutions
         }
 
         //helper for Hash Tables: Random's checkMagazine()
-        public static Dictionary<string, int> GetMagazineWordCountDict(string[] magazine)
+        public static Dictionary<string, int> GetWordCountDict(string[] magazine)
         {
             Dictionary<string, int> magazineWordCountDict = new Dictionary<string, int>();
             foreach (string s in magazine)
@@ -78,6 +78,30 @@ namespace HankerRankSolutions
             return magazineWordCountDict;
         }
 
-        
+        //solution for Sherlock and Anagrams
+        public static int sherlockAndAnagrams(string s)
+        {
+            int anagramCount = 0;
+            var substringDict = new Dictionary<string, int>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                for (int j = s.Length-i; j > 0; j--)
+                {
+                    var substring = s.Substring(i, j);
+                    var sortedString = String.Concat(substring.OrderBy(c => c));
+                    if (substringDict.ContainsKey(sortedString))
+                    {
+                        anagramCount+= substringDict[sortedString];
+                        substringDict[sortedString]++;
+                    }
+                    else
+                    {
+                        substringDict.Add(sortedString, 1);
+                    }
+                }
+            }
+            return anagramCount;
+        }
     }
 }

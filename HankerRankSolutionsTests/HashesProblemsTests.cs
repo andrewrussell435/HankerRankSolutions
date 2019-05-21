@@ -55,7 +55,7 @@ namespace HankerRankSolutions.Tests
         [TestMethod()]
         public void checkMagazineTest_SampleInputZero()
         {
-            var magazine = new string[] { "give","me","one","grand","today","night" };
+            var magazine = new string[] { "give", "me", "one", "grand", "today", "night" };
             var note = new string[] { "give", "one", "grand", "today" };
 
             var result = HashesProblems.checkMagazine(magazine, note);
@@ -81,6 +81,52 @@ namespace HankerRankSolutions.Tests
             var result = HashesProblems.checkMagazine(magazine, note);
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod()]
+        public void sherlockAndAnagramsTest_SampleInputOne()
+        {
+            string s = "abba";
+
+            int anagramCount = HashesProblems.sherlockAndAnagrams(s);
+
+            Assert.AreEqual(4, anagramCount);
+        }
+        [TestMethod()]
+        public void sherlockAndAnagramsTest_SampleInputTwo()
+        {
+            string s = "abcd";
+
+            int anagramCount = HashesProblems.sherlockAndAnagrams(s);
+
+            Assert.AreEqual(0, anagramCount);
+        }
+        [TestMethod()]
+        public void sherlockAndAnagramsTest_SampleInputThree()
+        {
+            string s = "ifailuhkqq";
+
+            int anagramCount = HashesProblems.sherlockAndAnagrams(s);
+
+            Assert.AreEqual(3, anagramCount);
+        }
+        [TestMethod()]
+        public void sherlockAndAnagramsTest_SampleInputFour()
+        {
+            string s = "kkkk";
+
+            int anagramCount = HashesProblems.sherlockAndAnagrams(s);
+
+            Assert.AreEqual(10, anagramCount);
+        }
+        [TestMethod()]
+        public void sherlockAndAnagramsTest_SampleInputFive()
+        {
+            string s = "cdcd";
+
+            int anagramCount = HashesProblems.sherlockAndAnagrams(s);
+
+            Assert.AreEqual(5, anagramCount);
         }
     }
 }
