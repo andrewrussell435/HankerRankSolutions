@@ -9,7 +9,7 @@ namespace HankerRankSolutions
 {
     public static class HashesProblems
     {
-        // Complete the twoStrings function below.
+        //Solution for two strings
         public static string twoStrings(string s1, string s2)
         {
             if (s1.Length > s2.Length) {
@@ -20,7 +20,7 @@ namespace HankerRankSolutions
                 return StringCompare(s2, s1);
             }
         }
-
+        //helper for two strings
         public static string StringCompare(string s1, string s2)
         {
             var s1Hash = new HashSet<char>(s1);
@@ -34,5 +34,50 @@ namespace HankerRankSolutions
             }
             return "NO";
         }
+
+        //solution for Hash Tables: Ransom Note
+        public static bool checkMagazine(string[] magazine, string[] note)
+        {
+            Dictionary<string, int> magazineWordCountDict = GetMagazineWordCountDict(magazine);
+
+            bool valid = true;
+            foreach (string word in note)
+            {
+                if (magazineWordCountDict.ContainsKey(word) && magazineWordCountDict[word] > 0)
+                {
+                    magazineWordCountDict[word]--;
+                }
+                else
+                {
+                    valid = false;
+                    break;
+                }
+
+            }
+
+            var results = valid ? "Yes" : "No";
+            Console.WriteLine(results);
+            return valid;
+        }
+
+        //helper for Hash Tables: Random's checkMagazine()
+        public static Dictionary<string, int> GetMagazineWordCountDict(string[] magazine)
+        {
+            Dictionary<string, int> magazineWordCountDict = new Dictionary<string, int>();
+            foreach (string s in magazine)
+            {
+                if (magazineWordCountDict.ContainsKey(s))
+                {
+                    magazineWordCountDict[s]++;
+                }
+                else
+                {
+                    magazineWordCountDict.Add(s, 1);
+                }
+            }
+            return magazineWordCountDict;
+        }
+
+        
     }
 }

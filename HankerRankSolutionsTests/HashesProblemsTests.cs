@@ -49,7 +49,38 @@ namespace HankerRankSolutions.Tests
 
             string results = HashesProblems.twoStrings(s1, s2);
 
-            Assert.IsTrue("NO" == results);
+            Assert.AreEqual("NO", results);
+        }
+
+        [TestMethod()]
+        public void checkMagazineTest_SampleInputZero()
+        {
+            var magazine = new string[] { "give","me","one","grand","today","night" };
+            var note = new string[] { "give", "one", "grand", "today" };
+
+            var result = HashesProblems.checkMagazine(magazine, note);
+
+            Assert.IsTrue(result);
+        }
+        [TestMethod()]
+        public void checkMagazineTest_SampleInputOne()
+        {
+            var magazine = new string[] { "two", "times", "three", "is", "not", "four" };
+            var note = new string[] { "two", "times", "two", "is", "four" };
+
+            var result = HashesProblems.checkMagazine(magazine, note);
+
+            Assert.IsFalse(result);
+        }
+        [TestMethod()]
+        public void checkMagazineTest_SampleInputThree()
+        {
+            var magazine = new string[] { "ive", "got", "a", "lovely", "bunch", "of", "coconuts" };
+            var note = new string[] { "ive", "got", "some", "coconuts" };
+
+            var result = HashesProblems.checkMagazine(magazine, note);
+
+            Assert.IsFalse(result);
         }
     }
 }
