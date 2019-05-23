@@ -36,39 +36,39 @@ namespace HankerRankSolutions
         {
             long palindromeCount = 0;
 
-            int currentRun = 0;
+            int sameCharacterCount = 0;
             for (int i = 0; i < n; i++)
             {
 
                 if (i == 0 || (i - 1 >= 0 && s[i - 1] == s[i]))
                 {
-                    currentRun++;
+                    sameCharacterCount++;
                 }
                 else
                 {
-                    palindromeCount += (currentRun * (currentRun + 1)) / 2;
-                    currentRun = 1;
+                    palindromeCount += (sameCharacterCount * (sameCharacterCount + 1)) / 2;
+                    sameCharacterCount = 1;
                     if (i - 2 >= 0 && s[i - 2] == s[i])
                     {
                         int rightIndex = i;
                         int leftIndex = i - 2;
-                        currentRun = 0;
+                        sameCharacterCount = 0;
                         while (leftIndex >= 0 &&  rightIndex < n && s[rightIndex] == s[i] &&  s[leftIndex] == s[rightIndex])
                         {
                             palindromeCount++;
                             rightIndex++;
                             leftIndex--;
-                            currentRun++;
+                            sameCharacterCount++;
                         }
                         i = rightIndex-1;
                     }
                     else
                     {
-                        currentRun = 1;
+                        sameCharacterCount = 1;
                     }
                 }
             }
-            palindromeCount += (currentRun * (currentRun + 1)) / 2;
+            palindromeCount += (sameCharacterCount * (sameCharacterCount + 1)) / 2;
             return palindromeCount;
         }
     }
