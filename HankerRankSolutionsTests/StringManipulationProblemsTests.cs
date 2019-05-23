@@ -46,5 +46,41 @@ namespace HankerRankSolutions.Tests
             var results = StringManipulationProblems.alternatingCharacters(s);
             Assert.AreEqual(4, results);
         }
+
+        [TestMethod()]
+        public void substrCountTest_SampleZero()
+        {
+            string s = "asasd";
+            var results = StringManipulationProblems.substrCount(s.Length, s);
+            Assert.AreEqual(7, results);
+        }
+        [TestMethod()]
+        public void substrCountTest_SampleOne()
+        {
+            string s = "abcbaba";
+            var results = StringManipulationProblems.substrCount(s.Length, s);
+            Assert.AreEqual(10, results);
+        }
+        [TestMethod()]
+        public void substrCountTest_SampleTwo()
+        {
+            string s = "aaaa";
+            var results = StringManipulationProblems.substrCount(s.Length, s);
+            Assert.AreEqual(10, results);
+        }
+        [TestMethod()]
+        public void substrCountTest_SampleThree()
+        {
+            string s = "mnonopoo";
+            var results = StringManipulationProblems.substrCount(s.Length, s);
+            Assert.AreEqual(12, results);
+        }
+        [TestMethod()]
+        public void substrCountTest_SampleFour()
+        {
+            string s = "aabaa";
+            var results = StringManipulationProblems.substrCount(s.Length, s);
+            Assert.AreEqual(9, results);
+        }
     }
 }
