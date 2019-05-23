@@ -47,12 +47,11 @@ namespace HankerRankSolutions
                 else
                 {
                     palindromeCount += (sameCharacterCount * (sameCharacterCount + 1)) / 2;
-                    sameCharacterCount = 1;
                     if (i - 2 >= 0 && s[i - 2] == s[i])
                     {
+                        sameCharacterCount = 0;
                         int rightIndex = i;
                         int leftIndex = i - 2;
-                        sameCharacterCount = 0;
                         while (leftIndex >= 0 &&  rightIndex < n && s[rightIndex] == s[i] &&  s[leftIndex] == s[rightIndex])
                         {
                             palindromeCount++;
