@@ -85,7 +85,7 @@ namespace HankerRankSolutions.Tests
         public void alternatingCharactersTest_Fsharp_SampleOne()
         {
             string s = "AAAA";
-            int results = StringManipulationProblemsFsharp.alternatingCharacters(s);
+            var results = StringManipulationProblemsFsharp.alternatingCharacters(s);
             Assert.AreEqual(3, results);
         }
 
