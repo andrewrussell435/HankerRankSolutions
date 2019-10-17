@@ -67,9 +67,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HankerRankSolutions\HankerRankSolutions.csproj">
-      <Project>{6270682C-B4AC-4B87-B465-1EA5866A718B}</Project>
-      <Name>HankerRankSolutions</Name>
+    <ProjectReference Include="..\HackerRankFsharpSolutions\HackerRankFsharpSolutions.fsproj">
+      <Project>{8f63414f-4c67-4ed5-9e59-e0f2da55987a}</Project>
+      <Name>HackerRankFsharpSolutions</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
