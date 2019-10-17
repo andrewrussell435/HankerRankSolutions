@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using HackerRankFsharpSolutions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace HankerRankSolutions.Tests
@@ -84,9 +85,37 @@ namespace HankerRankSolutions.Tests
         public void alternatingCharactersTest_Fsharp_SampleOne()
         {
             string s = "AAAA";
-            var results = StringManipulationProblems.alternatingCharacters(s);
+            int results = StringManipulationProblemsFsharp.alternatingCharacters(s);
             Assert.AreEqual(3, results);
         }
 
+        [TestMethod()]
+        public void alternatingCharactersTest_Fsharp_SampleTwo()
+        {
+            string s = "BBBBB";
+            var results = StringManipulationProblemsFsharp.alternatingCharacters(s);
+            Assert.AreEqual(4, results);
+        }
+        [TestMethod()]
+        public void alternatingCharactersTest_Fsharp_SampleThree()
+        {
+            string s = "ABABABAB";
+            var results = StringManipulationProblemsFsharp.alternatingCharacters(s);
+            Assert.AreEqual(0, results);
+        }
+        [TestMethod()]
+        public void alternatingCharactersTest_Fsharp_SampleFour()
+        {
+            string s = "BABABA";
+            var results = StringManipulationProblemsFsharp.alternatingCharacters(s);
+            Assert.AreEqual(0, results);
+        }
+        [TestMethod()]
+        public void alternatingCharactersTest_Fsharp_SampleFive()
+        {
+            string s = "AAABBB";
+            var results = StringManipulationProblemsFsharp.alternatingCharacters(s);
+            Assert.AreEqual(4, results);
+        }
     }
 }
